@@ -52,7 +52,7 @@ background-size: cover;
   }
   .gal-one{
     background:radial-gradient(rgba(0, 0, 0, 0.211),black), url(./image/gal1.jpg);
-    background-position: center;
+    background-position: center;  
     background-size:cover;
   }
   

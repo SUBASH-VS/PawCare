@@ -32,8 +32,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
-    <link rel="Stylesheet" href="css/details.css">
-    <style>
+        <style>
         body{
             width: 100vw;
             overflow-x: hidden;
@@ -46,6 +45,12 @@
                 margin-bottom: 5%;
                 margin-left: 3%;
                 margin-right: 3%;
+            }
+            .d-flex img {
+                max-width: 100%;
+                height: auto;
+                background-position: center;
+                background-size: cover;
             }
 
             .green-text {
@@ -72,7 +77,7 @@
     </div>
 
     <div class="d-flex flex-row gap-5 flex-wrap justify-content-start align-items-center p-5">
-        <div class="w-40"><img src="image/pet_imgs_db/<?= $row["picture"] ?>" width="80%"></div><br>
+        <div class="w-40"><img src="image/pet_imgs_db/<?= $row["picture"] ?>" width="100%"></div>
         <div class="w-40 ps-0">
             <div class="mb-3"><b id="txSize">Name:</b> <br> <?= $row["name"] ?></div>
             <div class="mb-3"><b id="txSize">Age:</b> <br><?= $row["age"]?></div>
