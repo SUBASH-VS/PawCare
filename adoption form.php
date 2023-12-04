@@ -35,9 +35,7 @@
             font-weight: bold;
         }
 
-        input,
-        select,
-        textarea {
+        input,select{
             width: 100%;
             padding: 8px;
             margin-top: 8px;
@@ -45,6 +43,16 @@
             box-sizing: border-box;
             border-radius: 10px;
         }
+        .textarea{
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: 3px solid #4c2a2a;
+        }
+
 
         input, select, textarea :hover{
             border: 3px solid #4c2a2a;
@@ -83,7 +91,7 @@
     <p>Thank you for considering adopting a furry friend!</p>
     <br>
 
-    <form action="process_adoption.php" method="post">
+    <form method="post">
         <label for="adopterName">Adopter's Name:</label>
         <input type="text" id="adopterName" name="adopterName" required>
 
@@ -93,57 +101,20 @@
         <label for="contactNumber">Contact Number:</label>
         <input type="tel" id="contactNumber" name="contactNumber" required pattern="[0-9]{10}">
 
-        <label for="ownPets">Do you own any pets?</label>
-        <select id="ownPets" name="ownPets" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
+        <label for="livingcondition">Living Conditions:</label>
+        <textarea type="textarea" class="textarea" id="livingcondition" name="livingcondition" required></textarea>
 
-        <div id="petTypeSection" style="display: none;">
-            <label for="petType">Type of Pet:</label>
-            <input type="text" id="petType" name="petType">
-        </div>
+        <label for="experience">Previous Pet Experience:</label>
+        <textarea type="textarea" class="textarea" id="experience" name="experience" required></textarea>
+
+        <label for="reason">Adoption Reason:</label>
+        <textarea type="textarea" class="textarea" id="reason" name="reason" required></textarea>
         
-
-        <label for="state">State:</label>
-        <select id="state" name="state" required>
-            <option value="Andhra Pradesh">Andhra Pradesh</option>
-            <option value="Assam">Assam</option>
-            <option value="Gujarat">Gujarat</option>
-            <option value="Karnataka">Karnataka</option>
-            <option value="Maharashtra">Maharashtra</option>
-            <option value="Punjab">Punjab</option>
-            <option value="Rajasthan">Rajasthan</option>
-            <option value="Tamil Nadu">Tamil Nadu</option>
-            <option value="Uttar Pradesh">Uttar Pradesh</option>
-            <option value="West Bengal">West Bengal</option>
-        </select>
-
-        <label for="city">City:</label>
-        <select id="city" name="city" required>
-            <option value="Mumbai">Mumbai</option>
-            <option value="Delhi">Delhi</option>
-            <option value="Bangalore">Bangalore</option>
-            <option value="Chennai">Chennai</option>
-            <option value="Kolkata">Kolkata</option>
-            <option value="Hyderabad">Hyderabad</option>
-            <option value="Ahmedabad">Ahmedabad</option>
-            <option value="Pune">Pune</option>
-            <option value="Jaipur">Jaipur</option>
-            <option value="Lucknow">Lucknow</option>
-        </select>
-        <br><br>
-
         <button type="submit">Adoption Now</button>
     </form>
 </div>
 </div>
-<script>
-    document.getElementById('ownPets').addEventListener('change', function () {
-        var petTypeSection = document.getElementById('petTypeSection');
-        petTypeSection.style.display = (this.value === 'yes') ? 'block' : 'none';
-    });
-</script>
+
 <div>
 <?= $footer?>
 </div>
