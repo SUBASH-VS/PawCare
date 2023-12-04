@@ -23,6 +23,9 @@
         background-image: url(./image/bg.png);
         
         }
+        .faqCard {
+            border-color: #44c4bd;
+        }
         .MLLine {
             display: inline-flex;
             justify-self: center;

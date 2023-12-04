@@ -23,10 +23,11 @@
             
             mysqli_query($conn,$sql);
 
-            echo "<script type = 'text/javascript'> alert('Successfully register')</script>";
+            header("Location: index.php");
         }
         else {
             echo "<script type = 'text/javascript'> alert('Try again!...')</script>";
+            header("Location: sign up.php");
         }
     }
 ?>
@@ -50,11 +51,11 @@
             <h1>sign up</h1>
     <div class="input-box">
 
-     <input type="text" name = "usernaem" placeholder="username" required  >
+     <input type="text" name = "username" placeholder="username" required  >
      <i class='bx bxs-user'></i>
     </div>
     <div class="input-box">
-        <input type="email" naem = "email" placeholder="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <input type="email" name = "email" placeholder="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
         <i class='bx bxs-envelope'></i>
     </div>
     <div class="input-box">
