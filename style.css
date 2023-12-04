@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://use.typekit.net/dbo6snm.css");
+@import url("https://use.typekit.net/dbo6snm.css");
+@import url('css/navbar.css');
+
+.MLLine {
+  display: inline-flex;
+  justify-self: center;
+  align-self: center;
+  color: #44c4bd;
+  opacity: 100%;
+}
+
+
+
+
+.container1{
+width: 100vw;
+height: 100vh;
+background-image: url(./image/edit.png);
+background-position: center;
+background-size: cover;
+}
+.bannerlogo{
+ background-position: right;
+ width: 600px;
+ height: 600px;
+ float: right;
+ transform: translate(-100px,50px);
+ scale: 1.1;
+ cursor: pointer;
+ clear: both;
+
+}
+
+ .img{
+    width: 100%;
+    height: 650px;
+  } 
+  .container-gallery{
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 37px 5px gray;
+  }
+  .gal-one{
+    background:radial-gradient(rgba(0, 0, 0, 0.211),black), url(./image/gal1.jpg);
+    background-position: center;
+    background-size:cover;
+  }
+  
+  .gal-two{
+  
+    background: url(./image/gal2.webp);
+    background-position: center;
+    background-size: cover;
+  }
+  .gal-three{
+  
+    background: url(./image/gal3.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  .gal-four{
+  
+    background: url(./image/gal8.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .gal-five{
+  
+    background: url(./image/gal4.webp);
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .gal-six{
+  
+    background: url(./image/gal5.webp);
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .gal-seven{
+  
+    background: url(./image/gal10.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .gal-eight{
+  
+    background: url(./image/gal7.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  .gallery-title{
+    width: 100%;
+    text-align: center;
+    font-size: 5vw;
+    position: absolute;
+    bottom: 20px;
+    text-shadow: 5px 5px 10px black;
+  }
+
+
+
+
+  /* adoption page */
+
+.adoptionpic{
+width: 100vw;
+height: 70vh;
+background-image: url(./image/adoption/wall1.jpg);
+background-position: center;
+background-size: cover;
+border-bottom: 10px solid black;
+
+  }
+
+  .adoption_card{
+    background-color: aliceblue;
+    border: 10px solid grey;
+    width: fit-content;
+    height: 209.2px;
+    padding: 03px;
+    border-radius: 25px;
+    transition: 0.5s;
+    
+  }
+
+  .adoption_card:hover{
+    scale: 1.1;
+    box-shadow: 0px 2px 20px 2px #000000;
+    border: 10px solid black;
+    transition: 0.5s;
+
+}
+
+  .adoptlogo{
+    font-size: 10rem;
+  }
+  .adopt_text{
+    text-align: center;
+  }
+.adoptcard_collection{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  transform: translateY(-100px);
+}
+.adopt_link{
+  color: black;
+  text-decoration: none;
+}
+
+.contentbutton{
+background-color: #9f5311;
+}
+

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}    
+
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: white;
+    padding: 15px;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.title i{
+    font-size: 2rem;
+}
+.nav-menu{
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-62%) ;
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    scale: 0.8;
+}
+
+.nav-menu li{
+    display: flex;
+}
+.nav-menu li a{
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
+    display: block;
+    margin: 10px 10px;
+    border-radius: 5px;
+
+}
+.btn{
+    background: #000;
+    color: white;
+    transition: 0.6s;  
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+
+}
+.nav-menu li .btn:hover{
+    background: #9f5311;
+    transition: 0.4s;
+    text-shadow: 4px 4px 10px black;
+    scale: 1.1;
+}
+.last-btn{
+    background:#9f5311;
+    color: white;
+}
+
+.last-btn:hover{
+    background: #9f5311;
+    transition: 0.4s;
+    text-shadow: 4px 4px 10px black;
+    scale: 1.1;
+}
+.menu-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.menu-btn div{
+    background: #000000c3;
+    color: white;
+    padding: 10px 30px;
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px; 
+}
+.menu-btn .material-symbols-outlined:hover .nav-menu{
+    display: flex;
+    animation: DropDown 0.8s ease-in-out ;
+}
+@keyframes DropDown {
+    from{
+        top: -100px;
+    }            
+    to{
+        top: 40px;
+    }
+}
