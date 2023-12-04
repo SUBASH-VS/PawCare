@@ -14,10 +14,10 @@
             if($rowAnimal["breed"] == "cat"){
                 $adoptBtn = "";
                 if($rowAnimal["status"] == 0 ||  $rowAnimal["status"] == 2){
-                    $adoptBtn = "<button href='adopt.php?x={$rowAnimal["id"]}' class='btn text-white' disabled id='upBtn'>Take me home</button>";
+                    $adoptBtn = "<button href='adoption form.php?x={$rowAnimal["id"]}' class='btn text-white' disabled id='upBtn'>Take me home</button>";
                 }
                 else {
-                    $adoptBtn = "<button  class='btn text-white' id='upBtn'> <a class='text-decoration-none text-white' href='adopt.php?x={$rowAnimal["id"]}'>Take me home </a> </button>";
+                    $adoptBtn = "<button  class='btn text-white' id='upBtn'> <a class='text-decoration-none text-white' href='adoption form.php?x={$rowAnimal["id"]}'>Take me home </a> </button>";
                 }
 
                 $bttn ="

@@ -2,9 +2,8 @@
     require_once "db.php";
     require_once "footer.php";
     require_once "navbar.php";
-    // $id = $_GET["x"];
-    $id = 21;
-
+    $id = $_GET["x"];
+    // $id = 21;
     $sql = "SELECT * FROM animals WHERE id = $id";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -55,7 +54,6 @@
         <div class="w-40"><img src="image/pet_imgs_db/<?= $row["picture"] ?>" width="80%"></div>
         <div class="w-40 ps-0">
             <div class="mb-3"><b id="txSize">Name:</b> <br> <?= $row["name"] ?></div>
-            <div class="mb-3"><b id="txSize">Address:</b> <br><?= $row["address"]?></div>
             <div class="mb-3"><b id="txSize">Age:</b> <br><?= $row["age"]?></div>
             <div class="mb-3"><b id="txSize">Size:</b> <br><?= $row["size"]?> cm</div>
             <div class="mb-3"><b id="txSize">Vaccinated:</b> <br><?= $row["vaccinated"] ?></div>

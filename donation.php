@@ -155,30 +155,30 @@
 
         <label for="state">State:</label>
         <select id="state" name="state" required>
-            <option value="tamilnadu">Tamil Nadu</option>
-            <option value="assam">Assam</option>
-            <option value="gujarat">Gujarat</option>
-            <option value="karnataka">Karnataka</option>
-            <option value="maharashtra">Maharashtra</option>
-            <option value="punjab">Punjab</option>
-            <option value="rajasthan">Rajasthan</option>
-            <option value="andrapradhesh">Andra Pradhesh</option>
-            <option value="uttarpradesh">Uttar Pradesh</option>
-            <option value="westbengal">West Bengal</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Assam">Assam</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Andra Pradhesh">Andra Pradhesh</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="West Bengal">West Bengal</option>
         </select>
 
         <label for="city">City:</label>
         <select id="city" name="city" required>
-            <option value="coidbatore">Coimbatore</option>
-            <option value="selam">Selam</option>
-            <option value="villupuran">Villupuran</option>
-            <option value="chennai">Chennai</option>
-            <option value="madurai">Madurai</option>
-            <option value="vellore">Vellore</option>
-            <option value="tirupur">Tirupur</option>
-            <option value="thiruvallur">Thiruvallur</option>
-            <option value="erode">Erode</option>
-            <option value="kanchipuram">Kanchipuram</option>
+            <option value="Coidbatore">Coimbatore</option>
+            <option value="Selam">Selam</option>
+            <option value="Villupuran">Villupuran</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Madurai">Madurai</option>
+            <option value="Vellore">Vellore</option>
+            <option value="Tirupur">Tirupur</option>
+            <option value="Thiruvallur">Thiruvallur</option>
+            <option value="Erode">Erode</option>
+            <option value="Kanchipuram">Kanchipuram</option>
         </select>
 
         <label class="label_classes" for="petDescription">Pet Description:</label>
