@@ -2,11 +2,10 @@
     require_once "footer.php";
     require_once "navbar.php";
     require_once "db.php";
-    // if(!isset($_SESSION["shelter"])){
-    //     header("Location: index.php");
-    // }
-    // $sql = "SELECT * FROM pet_adoptions WHERE shelter_id = {$_SESSION["shelter"]}";
-    $sql = "SELECT * FROM pet_adoptions WHERE shelter_id = 1";
+    if(!isset($_SESSION["user"])){
+        header("Location: index.php");
+    }
+    $sql = "SELECT * FROM pet_adoptions WHERE shelter_id = {$_SESSION["user"]}";
     $result = mysqli_query($conn, $sql);
     $layout = "";
 
@@ -16,7 +15,7 @@
             $resultA = mysqli_query($conn, $sqlA);
 
             $rowA = mysqli_fetch_assoc($resultA);
-            $sqlU = "SELECT * FROM users WHERE id = {$row['user_id_fk']}";
+            $sqlU = "SELECT * FROM user WHERE id = {$row['user_id_fk']}";
             $resultU = mysqli_query($conn, $sqlU);
 
             $rowU = mysqli_fetch_assoc($resultU);
