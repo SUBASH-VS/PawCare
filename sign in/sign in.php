@@ -1,41 +1,56 @@
 
-
 <?php
+    
+    require_once "../db.php";
+
+    if(isset($_SESSION["adm"]) || isset($_SESSION["user"]) || isset($_SESSION["shelter"])){
+        header("Location: ../index.php");
+    }
     session_start();
-    include("../db.php");
-    // Check if the form is submitted
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        // Collect form data
-        $email = $_POST['email'];
-        $password = $_POST['password'];
 
-        if (!empty($email) && !empty($password) && !is_numeric($email)) {
-            $sql = "SELECT * FROM user WHERE email = '$email' limit 1";
-            $result = mysqli_query($conn, $sql);
-            
-            if($result)
-            {
-                if($result && mysqli_num_rows($result) > 0)
-                {
-                    $user_data = mysqli_fetch_assoc($result);
+    $email = $passError = $emailError = "";
+    $error = false;
 
-                    if($user_data['password'] == $password)
-                    {
-                        header("location: ..\index.php");
-                        die;
-                    }
-                }
-            }
-            echo "<script type = 'text/javascript'> alert('Wrong email id or Password')</script>";
-        }
-        else
-        {
-            echo "<script type = 'text/javascript'> alert('Wrong email id or Password')</script>";
-        }
+    function cleanInputs($input){
+        $data = trim($input); 
+        $data = strip_tags($data); 
+        $data = htmlspecialchars($data); 
+ 
+         return $data;
     }
 
-?>
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $email = cleanInputs($_POST["email"]);
+        $password = $_POST["password"];
 
+        if(!$error){
+            $password = hash("sha256", $password);
+
+            $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+            
+            if(mysqli_num_rows($result) == 1){ 
+                if($row["status"] == "user"){
+                    $_SESSION["user"] = $row["id"];
+                    header("Location: ../index.php");
+                } 
+                else if($row["status"] == "shelter"){
+                    $_SESSION["shelter"] = $row["id"];
+                    header("Location: ../index.php");
+                }
+                else {
+                    $_SESSION["adm"] = $row["id"];
+                    header("Location: ../index.php");
+                }
+            }else {
+                echo "<div class='alert alert-danger'>
+                <p>Wrong credentials, please try again.</p>
+              </div>";
+            }
+        }
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">

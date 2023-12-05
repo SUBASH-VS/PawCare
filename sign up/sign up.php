@@ -1,34 +1,37 @@
-
 <?php
+    require_once "../db.php";
+    if(isset($_SESSION["adm"]) || isset($_SESSION["user"]) || isset($_SESSION["shelter"])){
+        header("Location: index.php");
+    }
 
-    session_start();
-    include("../db.php");
+    $error = false;
 
-    // Check if the form is submitted
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        // Collect form data
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+    $username = $email = $password = "";
+    function cleanInput($param){
+        $data = trim($param);
+        $data = strip_tags($data);
+        $data = htmlspecialchars($data);
 
-        // Hash the password (make sure to use a secure hashing algorithm)
-        // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        return $data;
+    }
 
-        // Insert user data into the database
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $username = cleanInput($_POST["username"]);
+        $email = cleanInput($_POST["email"]);
+        $password = $_POST["password"];
+
+        $password = hash("sha256", $password);
+        $sql = "INSERT INTO `user`( `username`, `email`, `password`) VALUES ('$username','$email','$password') ";
+
+        if(mysqli_query($conn, $sql)){
+                header("refresh: 1; url = ../sign in/sign in.php");
+            } else  {
+                    echo   "<div class='alert alert-danger'>
+                        <p>Oops! Something went wrong.</p>
+                        </div>" ;
+                    header("refresh: 1;url = ../sign up/sign up.php");
+            }
         
-
-        if (!empty($email) && !empty($password) && !is_numeric($email)) {
-            
-            $sql = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$password')";
-            
-            mysqli_query($conn,$sql);
-
-            header("Location: index.php");
-        }
-        else {
-            echo "<script type = 'text/javascript'> alert('Try again!...')</script>";
-            header("Location: sign up.php");
-        }
     }
 ?>
 
@@ -47,33 +50,33 @@
 <body>
 
 <div class="wrapper">
-        <form method="POST">
+    <form method="POST"autocomplete="off" enctype="multipart/form-data">
             <h1>sign up</h1>
-    <div class="input-box">
+            <div class="input-box">
 
-     <input type="text" name = "username" placeholder="username" required  >
-     <i class='bx bxs-user'></i>
-    </div>
-    <div class="input-box">
-        <input type="email" name = "email" placeholder="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-        <i class='bx bxs-envelope'></i>
-    </div>
-    <div class="input-box">
-        <input type="password" name = "password"placeholder="password" required >
-        <i class='bx bxs-lock-open' ></i>
-    </div>
-    <div class="input-box">
-        <input type=" confirm password" placeholder="confirm password" required >
-        <i class='bx bxs-lock' ></i>
-    </div>
-<button type="submit" class="btn">Register</button>
+            <input type="text" name = "username" placeholder="username" required  >
+            <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="email" name = "email" placeholder="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name = "password"placeholder="password" required >
+                <i class='bx bxs-lock-open' ></i>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="confirm password" required >
+                <i class='bx bxs-lock' ></i>
+            </div>
+            <button type="submit" class="btn">Register</button>
 
-    <div class="acc-link">
-        <p>Already have on Account &nbsp;<a href="../sign in/sign in.php"> Sign in</a></p>
-     </div>
-</div>
+            <div class="acc-link">
+                <p>Already have on Account &nbsp;<a href="../sign in/sign in.php"> Sign in</a></p>
+            </div>
+        </div>
 
-</form>
+    </form>
     
     
 </body>
