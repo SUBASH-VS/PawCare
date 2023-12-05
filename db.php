@@ -7,9 +7,7 @@
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    if (!$connect) {
+    if (!$conn) {
         die ("Connection failed");
     }
-    
- 
 ?>
