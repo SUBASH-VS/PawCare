@@ -1,11 +1,9 @@
 <?php
     require_once "navbar.php";
     require_once "footer.php";
-    require_once "file_uplode.php";
     require_once "db.php";
-
     if(!isset($_SESSION["user"]) && !isset($_SESSION["adm"])){
-        header("Location: ../index.php");
+        header("Location: index.php");
     }
     if(isset($_SESSION["user"])){
         $sqlUser = "SELECT * FROM user WHERE id = {$_SESSION["user"]}";
@@ -18,6 +16,7 @@
     $rowUser = mysqli_fetch_assoc($resultUser);
     
     $id = $_GET["x"];
+
     $error = false;
     $livingcondition = $previousexperience = $adoptionreason = "";
  

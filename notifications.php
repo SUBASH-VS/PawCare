@@ -1,7 +1,6 @@
 <?php 
     require_once "footer.php";
     require_once "navbar.php";
-    require_once "db.php";
     if(!isset($_SESSION["user"])){
         header("Location: index.php");
     }
@@ -28,7 +27,7 @@
                 <th scope='row'>$seen</th>
                 <td>{$row['request_date']}</td>
                 <td>{$rowA['name']}</td>
-                <td>{$rowU['first_name']} {$rowU['last_name']}</td>
+                <td>{$rowU['username']}</td>
                 <td><a href='requests.php?x={$row["id"]}'>Details</a></td>
             </tr>";
         }

@@ -40,11 +40,7 @@
                     header("Location: ../index.php");
                 }
             }
-            else {
-                echo "<div class='alert alert-danger'>
-                <p>Wrong credentials, please try again.</p>
-              </div>";
-            }
+
         }
     }
 ?>
