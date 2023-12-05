@@ -1,7 +1,71 @@
 <?php
     require_once "navbar.php";
     require_once "footer.php";
+    require_once "file_uplode.php";
+    require_once "db.php";
+
+    if(!isset($_SESSION["user"]) && !isset($_SESSION["adm"])){
+        header("Location: ../index.php");
+    }
+    if(isset($_SESSION["user"])){
+        $sqlUser = "SELECT * FROM user WHERE id = {$_SESSION["user"]}";
+    }elseif(isset($_SESSION["adm"])) {
+        $sqlUser = "SELECT * FROM user WHERE id = {$_SESSION["adm"]}";
+    }
+
+
+    $resultUser = mysqli_query($conn, $sqlUser);
+    $rowUser = mysqli_fetch_assoc($resultUser);
+    
+    $id = $_GET["x"];
+    $error = false;
+    $livingcondition = $previousexperience = $adoptionreason = "";
+ 
+
+    function cleanInput($param){
+        $data = trim($param);
+        $data = strip_tags($data);
+        $data = htmlspecialchars($data);
+
+        return $data;
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $livingcondition = cleanInput($_POST["livingcondition"]);
+        $previousexperience = cleanInput($_POST["previousexperience"]);
+        $adoptionreason = cleanInput($_POST["adoptionreason"]);
+        $adopterName = cleanInput($_POST["adopterName"]);
+        $adopterEmail = cleanInput($_POST["adopterEmail"]);
+        $contactNumber = cleanInput($_POST["contactNumber"]);
+
+        
+        if(!$error){
+            $sqlAnimal = "SELECT * FROM animals WHERE id = $id";
+            $resultAnimal = mysqli_query($conn, $sqlAnimal);
+            $rowAnimal = mysqli_fetch_assoc($resultAnimal);
+         
+            $shelterID = $rowAnimal["donee_id_fk"];
+            $request_date = date('Y-m-d H:i:s');
+            $user_id_fk = $rowUser["id"];
+            $animal_id_fk = $rowAnimal["id"];
+
+            $sqlAdoptionRequest = "INSERT INTO `pet_adoptions`(`adoptername`,`adopteremail`,`contactnumber`,`request_date`, `user_id_fk`, `animal_id_fk`, `living_condition`, `previous_experience`, `adoption_reason`, `shelter_id`) 
+                                    VALUES ('$adopterName', '$adopterEmail', '$contactNumber', '$request_date','$user_id_fk', '$animal_id_fk', '$livingcondition', '$previousexperience', '$adoptionreason', '$shelterID')";
+         
+            if(mysqli_query($conn, $sqlAdoptionRequest)){
+                echo "<div class='alert alert-success' role='alert'>
+                Yay! Your adoption request was sent successfully {$rowAnimal['name']}! 
+                    </div>";
+                    header("refresh: 1; url = index.php");
+            }else {
+                echo "<div class='alert alert-danger' role='alert'>
+                    Oops! Something went wrong. {$picture[1]}
+                    </div>";
+            }
+        }
+    }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +155,7 @@
     <p>Thank you for considering adopting a furry friend!</p>
     <br>
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <label for="adopterName">Adopter's Name:</label>
         <input type="text" id="adopterName" name="adopterName" required>
 
@@ -104,11 +168,11 @@
         <label for="livingcondition">Living Conditions:</label>
         <textarea type="textarea" class="textarea" id="livingcondition" name="livingcondition" required></textarea>
 
-        <label for="experience">Previous Pet Experience:</label>
-        <textarea type="textarea" class="textarea" id="experience" name="experience" required></textarea>
+        <label for="previousexperience">Previous Pet Experience:</label>
+        <textarea type="textarea" class="textarea" id="previousexperience" name="previousexperience" required></textarea>
 
-        <label for="reason">Adoption Reason:</label>
-        <textarea type="textarea" class="textarea" id="reason" name="reason" required></textarea>
+        <label for="adoptionreason">Adoption Reason:</label>
+        <textarea type="textarea" class="textarea" id="adoptionreason" name="adoptionreason" required></textarea>
         
         <button type="submit">Adoption Now</button>
     </form>

@@ -3,7 +3,7 @@
     
     require_once "../db.php";
 
-    if(isset($_SESSION["adm"]) || isset($_SESSION["user"]) || isset($_SESSION["shelter"])){
+    if(isset($_SESSION["adm"]) || isset($_SESSION["user"])){
         header("Location: ../index.php");
     }
     session_start();
@@ -35,15 +35,12 @@
                     $_SESSION["user"] = $row["id"];
                     header("Location: ../index.php");
                 } 
-                else if($row["status"] == "shelter"){
-                    $_SESSION["shelter"] = $row["id"];
-                    header("Location: ../index.php");
-                }
                 else {
                     $_SESSION["adm"] = $row["id"];
                     header("Location: ../index.php");
                 }
-            }else {
+            }
+            else {
                 echo "<div class='alert alert-danger'>
                 <p>Wrong credentials, please try again.</p>
               </div>";
