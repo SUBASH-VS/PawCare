@@ -22,7 +22,7 @@
         $city = $_POST["city"];
 
         $status = 1;
-        $donee_id = 9;
+        $donee_id = $_SESSION["user"];
 
         echo "$gender";
         
