@@ -61,7 +61,7 @@
         </div>
         <div class="myRequest">
             <div class="p-3 bg-light text-dark">
-                <b>Animal:</b>
+                <b>Pet Name:</b>
             </div>
             <div class="p-3 mb-3 bg-body-secondary">
                 <?= $rowA['name'] ?>
@@ -69,10 +69,26 @@
         </div>
         <div class="myRequest">
             <div class="p-3 bg-light text-dark">
-                <b>Adopter:</b>
+                <b>Adopee Name:</b>
             </div>
             <div class="p-3 mb-3 bg-body-secondary">
                 <?= $rowU['username']?>
+            </div>
+        </div>
+        <div class="myRequest">
+            <div class="p-3 bg-light text-dark">
+                <b>Number:</b>
+            </div>
+            <div class="p-3 mb-3 bg-body-secondary">
+                <?= $row['contactnumber']?>
+            </div>
+        </div>
+        <div class="myRequest">
+            <div class="p-3 bg-light text-dark">
+                <b>Pet type:</b>
+            </div>
+            <div class="p-3 mb-3 bg-body-secondary">
+                <?= $rowA['breed']?>
             </div>
         </div>
         <div class="myRequest">
@@ -104,7 +120,6 @@
     </div>
     
     <?= $footer ?>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

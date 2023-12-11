@@ -5,25 +5,27 @@
     
     $sqlAnimals = "SELECT * FROM animals";
     $resultAnimals = mysqli_query($conn, $sqlAnimals);
-
     $layout = "";
-
     if(mysqli_num_rows($resultAnimals) > 0){
         while($rowAnimal = mysqli_fetch_assoc($resultAnimals))
         {
             if($rowAnimal["breed"] == "dog"){
                 $adoptBtn = "";
+                $upBtn = "";
                 if($rowAnimal["status"] == 0 ||  $rowAnimal["status"] == 2){
                     $adoptBtn = "<button href='adopttion form.php?x={$rowAnimal["id"]}' class='btn text-white' disabled id='upBtn'>Take me home</button>";
                 }
                 else {
                     $adoptBtn = "<button  class='btn text-white' id='upBtn'> <a class='text-decoration-none text-white' href='adoption form.php?x={$rowAnimal["id"]}'>Take me home </a> </button>";
                 }
-
+                if(isset($_SESSION["adm"])){
+                    $upBtn = "<a href='edit.php?x={$rowAnimal["id"]}' class='btn btn-dark'>Edit</a>";
+                }
                 $bttn ="
                 <div class='buttons text-center'> 
                     <a href='details.php?x={$rowAnimal["id"]}' class='btn btn-dark'>Details</a>
                     {$adoptBtn}
+                    {$upBtn}
                 </div>";
                 $layout .= "<div>
                 <div class='card gap-2 mt-5 mb-5 shadow align-items-center' style='width: 17rem;'>

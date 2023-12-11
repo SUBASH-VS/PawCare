@@ -19,11 +19,15 @@
                 else {
                     $adoptBtn = "<button  class='btn text-white' id='upBtn'> <a class='text-decoration-none text-white' href='adoption form.php?x={$rowAnimal["id"]}'>Take me home </a> </button>";
                 }
+                if(isset($_SESSION["adm"])){
+                    $upBtn = "<a href='edit.php?x={$rowAnimal["id"]}' class='btn btn-dark'>Edit</a>";
+                }
 
                 $bttn ="
                 <div class='buttons text-center'> 
                     <a href='details.php?x={$rowAnimal["id"]}' class='btn btn-dark'>Details</a>
                     {$adoptBtn}
+                    {$upBtn}
                 </div>";
                 $layout .= "<div>
                 <div class='card gap-2 mt-5 mb-5 shadow align-items-center' style='width: 17rem;'>
