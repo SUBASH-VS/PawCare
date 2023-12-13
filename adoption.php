@@ -19,6 +19,57 @@
         background-image: url(./image/bg.png);
         
       }
+      .adoptionpic{
+        width: 100vw;
+        height: 70vh;
+        background-image: url(./image/wall1.jpg);
+        background-position: center;
+        background-size: cover;
+        border-bottom: 10px solid black;
+
+      }
+
+      .adoption_card{
+        background-color: aliceblue;
+        border: 10px solid grey;
+        width: fit-content;
+        height: 209.2px;
+        padding: 03px;
+        border-radius: 25px;
+        transition: 0.5s;
+          
+      }
+
+      .adoption_card:hover{
+        scale: 1.1;
+        box-shadow: 0px 2px 20px 2px #000000;
+        border: 10px solid black;
+        transition: 0.5s;
+
+      }
+
+      .adoptlogo{
+        font-size: 10rem;
+      }
+      .adopt_text{
+        text-align: center;
+      }
+      .adoptcard_collection{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 90px;
+        transform: translateY(-100px);
+      }
+      .adopt_link{
+        color: black;
+        text-decoration: none;
+      }
+
+      .contentbutton{
+        background-color: #9f5311;
+      }
+
     </style>
 </head>
 <body>
@@ -58,7 +109,7 @@
   </div>
 </div>
 
-  
+
 
 <?= $footer?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

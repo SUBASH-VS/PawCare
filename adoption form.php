@@ -145,7 +145,7 @@
 <body>
         <?= $nav?>
 
-        <br><br>
+        <br><br><br>
 
 <div class="container">
     <div class="container2"> 
@@ -156,10 +156,10 @@
 
     <form method="post" enctype="multipart/form-data">
         <label for="adopterName">Adopter's Name:</label>
-        <input type="text" id="adopterName" name="adopterName" required>
+        <input type="text" id="adopterName" name="adopterName" required value= "<?= $rowUser["username"] ?>">
 
         <label for="adopterEmail">Adopter's Email:</label>
-        <input type="email" id="adopterEmail" name="adopterEmail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+        <input type="email" id="adopterEmail" name="adopterEmail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" value= "<?= $rowUser["email"] ?>">
 
         <label for="contactNumber">Contact Number:</label>
         <input type="tel" id="contactNumber" name="contactNumber" required pattern="[0-9]{10}">

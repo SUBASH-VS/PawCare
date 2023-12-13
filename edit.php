@@ -65,6 +65,14 @@
         opacity: 100%;
 
     }
+    #upBtn {
+          background-color: #44c4bd;  
+      }
+
+      label {
+          font-weight:500;
+          font-size: larger;
+      }
     </style>
 </head>
 <body>
@@ -118,8 +126,8 @@
                     <option value="0">Adopted</option>
                 </select> 
             </div>
-            <button name="update" type="submit" class="btn  btn-dark mb-5" id="upBtn">Update entry</button>
-            <a href="index.php" class="btn btn-dark">Back to Admin</a>
+            <button name="update" type="submit" class="btn text-white mb-5" id="upBtn">Update entry</button>
+            <a href="index.php" class="btn btn-dark mb-5">Back to Admin</a>
             
         </form>
     </div>
