@@ -62,7 +62,7 @@
             <h1>SIGN IN</h1>
     <div class="input-box">
 
-     <input type="text" name ="email" placeholder="username" required  >
+     <input type="text" name ="email" placeholder="email" required  >
      <i class='bx bxs-user'></i>
     </div>
     <div class="input-box">
@@ -71,7 +71,7 @@
     </div>
 
     <div class="remember-forgot">
-        <label ><input type="checkbox">Remember me</label>
+        <!-- <label ><input type="checkbox">Remember me</label> -->
         <a href="../index.php"> return Home</a>
     </div>
 
