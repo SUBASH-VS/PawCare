@@ -52,6 +52,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
+    <style>
+    body{
+        width: 100vw;
+        overflow-x: hidden;
+        background-image: url(./image/bg.png);
+        
+    }
+    .MLLine {
+        margin-left: 0%;
+        color: #44c4bd;
+        opacity: 100%;
+
+    }
+    </style>
 </head>
 <body>
     <?= $nav ?>
@@ -105,7 +119,8 @@
                 </select> 
             </div>
             <button name="update" type="submit" class="btn  btn-dark mb-5" id="upBtn">Update entry</button>
-            <a href="index.php" class="btn btn-dark mb-5">Back to Admin</a>
+            <a href="index.php" class="btn btn-dark">Back to Admin</a>
+            
         </form>
     </div>
     <?= $footer ?>

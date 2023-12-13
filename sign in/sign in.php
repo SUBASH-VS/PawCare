@@ -3,7 +3,7 @@
     
     require_once "../db.php";
 
-    if(isset($_SESSION["adm"]) || isset($_SESSION["user"])){
+    if((isset($_SESSION["adm"])) || isset($_SESSION["user"])){
         header("Location: ../index.php");
     }
     session_start();
@@ -72,7 +72,7 @@
 
     <div class="remember-forgot">
         <label ><input type="checkbox">Remember me</label>
-        <a href="#"> forgot password?</a>
+        <a href="../index.php"> return Home</a>
     </div>
 
      

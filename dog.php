@@ -34,7 +34,7 @@
                     <h3 class='card-title text-center d-flex align-items-center justify-content-center' style='height: 8vh;' >{$rowAnimal["name"]}</h3>
                     <hr class='TitleHR'>
                     <p class='card-text ps-3 mt-4'><b>Age:</b> <br> {$rowAnimal["age"]} Years</p>
-                    <p class='card-text mb-4 ps-3'><b>Size:</b><br> {$rowAnimal["size"]} cm</p>
+                    <p class='card-text mb-4 ps-3'><b>Size:</b><br> {$rowAnimal["size"]} Kg</p>
                     {$bttn}
                     </div>
                     </div>

@@ -1,8 +1,8 @@
 <?php 
     require_once "footer.php";
     require_once "navbar.php";
-    if(!isset($_SESSION["user"])){
-        header("Location: index.php");
+    if(!isset($_SESSION["user"]) && (!isset($_SESSION["adm"]))){
+        header("Location: sign in/sign in.php");
     }
     $sql = "SELECT * FROM pet_adoptions WHERE shelter_id = {$_SESSION["user"]}";
     $result = mysqli_query($conn, $sql);

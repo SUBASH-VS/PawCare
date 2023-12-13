@@ -2,8 +2,8 @@
     require_once "footer.php";
     require_once "navbar.php";
     require_once "db.php";
-    if(!isset($_SESSION["user"])){
-        header("Location: index.php");
+    if(!isset($_SESSION["user"]) && (!isset($_SESSION["adm"]))){
+        header("Location: sign in/sign in.php");
     }
     $id = $_GET["x"];
 
