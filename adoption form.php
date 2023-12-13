@@ -2,8 +2,8 @@
     require_once "navbar.php";
     require_once "footer.php";
     require_once "db.php";
-    if(!isset($_SESSION["user"]) && !isset($_SESSION["adm"])){
-        header("Location: index.php");
+    if(!isset($_SESSION["user"]) && (!isset($_SESSION["adm"]))){
+        header("Location: sign in/sign in.php");
     }
     if(isset($_SESSION["user"])){
         $sqlUser = "SELECT * FROM user WHERE id = {$_SESSION["user"]}";
@@ -165,13 +165,13 @@
         <input type="tel" id="contactNumber" name="contactNumber" required pattern="[0-9]{10}">
 
         <label for="livingcondition">Living Conditions:</label>
-        <textarea type="textarea" class="textarea" id="livingcondition" name="livingcondition" required></textarea>
+        <textarea type="textarea" class="textarea" id="livingcondition" name="livingcondition" placeholder="Home Or Apartment" required></textarea>
 
         <label for="previousexperience">Previous Pet Experience:</label>
-        <textarea type="textarea" class="textarea" id="previousexperience" name="previousexperience" required></textarea>
+        <textarea type="textarea" class="textarea" id="previousexperience" name="previousexperience" placeholder="Yes/No      'If yes give discription'" required></textarea>
 
         <label for="adoptionreason">Adoption Reason:</label>
-        <textarea type="textarea" class="textarea" id="adoptionreason" name="adoptionreason" required></textarea>
+        <textarea type="textarea" class="textarea" id="adoptionreason" name="adoptionreason" required placeholder="Give the reason for Adoption"></textarea>
         
         <button type="submit">Adoption Now</button>
     </form>
