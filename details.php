@@ -81,9 +81,13 @@
         <div class="w-40 ps-0">
             <div class="mb-3"><b id="txSize">Name:</b> <br> <?= $row["name"] ?></div>
             <div class="mb-3"><b id="txSize">Age:</b> <br><?= $row["age"]?></div>
-            <div class="mb-3"><b id="txSize">Size:</b> <br><?= $row["size"]?> cm</div>
+            <div class="mb-3"><b id="txSize">Wight:</b> <br><?= $row["size"]?> Kg</div>
             <div class="mb-3"><b id="txSize">Vaccinated:</b> <br><?= $row["vaccinated"] ?></div>
             <div class="mb-3"><b id="txSize">Breed:</b> <br><?= $row["breed"] ?></div>
+            <div class="mb-3"><b id="txSize">Location:</b>&nbsp;&nbsp;<?= $row["city"] ?>, <?= $row["state"] ?> </div>
+            <!-- <div class="mb-3"><b id="txSize">State:</b> <br><?= $row["state"] ?></div> -->
+
+
 
 
             <div >

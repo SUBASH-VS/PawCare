@@ -8,6 +8,6 @@
         session_unset();
         session_destroy();
 
-        header("Location: sign in/sign in.php");
+        header("Location: index.php");
     }
 ?>

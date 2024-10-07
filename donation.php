@@ -3,6 +3,19 @@
     require_once "file_uplode.php";
     require_once "navbar.php";
     require_once "footer.php";
+    if(!isset($_SESSION["user"]) && (!isset($_SESSION["adm"]))){
+        header("Location: sign in/sign in.php");
+    }
+    if(isset($_SESSION["user"])){
+        $sqlUser = "SELECT * FROM user WHERE id = {$_SESSION["user"]}";
+    }elseif(isset($_SESSION["adm"])) {
+        $sqlUser = "SELECT * FROM user WHERE id = {$_SESSION["adm"]}";
+    }
+
+
+    $resultUser = mysqli_query($conn, $sqlUser);
+    $rowUser = mysqli_fetch_assoc($resultUser);
+    
     
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $sql ="";
@@ -22,7 +35,7 @@
         $city = $_POST["city"];
 
         $status = 1;
-        $donee_id = 9;
+        $donee_id = $_SESSION["user"];
 
         echo "$gender";
         
@@ -108,10 +121,10 @@
 
     <form method="POST" enctype="multipart/form-data">
         <label class="label_classes" for="donorName">Donor Name:</label>
-        <input type="text" id="donorName" name="donorName" required>
+        <input type="text" id="donorName" name="donorName" required value="<?= $rowUser['username'] ?>">
 
         <label class="label_classes" for="donorEmail">Donor Email:</label>
-        <input type="email" id="donorEmail" name="donorEmail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+        <input type="email" id="donorEmail" name="donorEmail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" value="<?= $rowUser['email'] ?>">
 
         <label class="label_classes" for="contactNumber">Contact Number:</label>
         <input type="tel" id="contactNumber" name="contactNumber" required pattern="[0-9]{10}">
@@ -129,8 +142,8 @@
         <!-- <label class="label_classes" for="petBreed">Pet Breed:</label>
         <input type="text" id="petBreed" name="petBreed" required> -->
         
-        <label class="label_classes" for="size">size:</label>
-        <input type="number" id="size" name="size" required>
+        <label class="label_classes" for="size">Weight:</label>
+        <input type="number" id="size" name="size" required placeholder="in kgs">
 
         <label class="label_classes" for="petAge">Pet Age:</label>
         <input type="number" id="petAge" name="petAge" min="0" required>
@@ -182,7 +195,7 @@
         </select>
 
         <label class="label_classes" for="petDescription">Pet Description:</label>
-        <textarea id="petDescription" name="petDescription" rows="4" required></textarea>
+        <textarea id="petDescription" name="petDescription" rows="4" required placeholder="Describe about your pet"></textarea>
 
         <label class="label_classes" for="picture">Upload Pet Image:</label>
         <input type="file" id="picture" name="picture" accept="image/*" required>

@@ -1,6 +1,6 @@
 <?php
     require_once "../db.php";
-    if(isset($_SESSION["adm"]) || isset($_SESSION["user"]) || isset($_SESSION["shelter"])){
+    if(isset($_SESSION["adm"]) || isset($_SESSION["user"])){
         header("Location: index.php");
     }
 

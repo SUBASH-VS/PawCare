@@ -3,7 +3,7 @@
     
     require_once "../db.php";
 
-    if(isset($_SESSION["adm"]) || isset($_SESSION["user"]) || isset($_SESSION["shelter"])){
+    if((isset($_SESSION["adm"])) || isset($_SESSION["user"])){
         header("Location: ../index.php");
     }
     session_start();
@@ -35,19 +35,12 @@
                     $_SESSION["user"] = $row["id"];
                     header("Location: ../index.php");
                 } 
-                else if($row["status"] == "shelter"){
-                    $_SESSION["shelter"] = $row["id"];
-                    header("Location: ../index.php");
-                }
                 else {
                     $_SESSION["adm"] = $row["id"];
                     header("Location: ../index.php");
                 }
-            }else {
-                echo "<div class='alert alert-danger'>
-                <p>Wrong credentials, please try again.</p>
-              </div>";
             }
+
         }
     }
 ?>
@@ -69,7 +62,7 @@
             <h1>SIGN IN</h1>
     <div class="input-box">
 
-     <input type="text" name ="email" placeholder="username" required  >
+     <input type="text" name ="email" placeholder="email" required  >
      <i class='bx bxs-user'></i>
     </div>
     <div class="input-box">
@@ -78,8 +71,8 @@
     </div>
 
     <div class="remember-forgot">
-        <label ><input type="checkbox">Remember me</label>
-        <a href="#"> forgot password?</a>
+        <!-- <label ><input type="checkbox">Remember me</label> -->
+        <a href="../index.php"> return Home</a>
     </div>
 
      

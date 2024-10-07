@@ -48,7 +48,7 @@
 
     <div class=" container bg-light container-fluid font-size-auto shadow p-5">
         <div class="d-flex  text-start flex-sm-wrap flex-md-wrap flex-lg-nowrap flex-row gap-5">
-            <img src="../images/TailwagCat.png" alt="" class="img-fluid h-50">
+            <img src="image/TailwagCat.png" alt="" class="img-fluid h-50">
             <div class="mb-5">
                     <h2 class="" id="welcome">Decoding Cat Communication: Understanding the Meaning of Tail Wags</h2>
                 <hr class="MLLine" style="width:20vw;">

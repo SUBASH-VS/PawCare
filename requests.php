@@ -2,11 +2,10 @@
     require_once "footer.php";
     require_once "navbar.php";
     require_once "db.php";
-    // if(!isset($_SESSION["shelter"])){
-    //     header("Location: home.php");
-    // }
-    // $id = $_GET["x"];
-    $id = 3;
+    if(!isset($_SESSION["user"]) && (!isset($_SESSION["adm"]))){
+        header("Location: sign in/sign in.php");
+    }
+    $id = $_GET["x"];
 
     $sql = "SELECT * FROM pet_adoptions WHERE id = $id";
     $result = mysqli_query($conn, $sql);
@@ -35,7 +34,6 @@
     <meta charset="UTF-8">
     <meta  name="viewport"  content="width=device-width, initial-scale=1.0" >
     <title>Notifications</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">    <style>
@@ -63,7 +61,7 @@
         </div>
         <div class="myRequest">
             <div class="p-3 bg-light text-dark">
-                <b>Animal:</b>
+                <b>Pet Name:</b>
             </div>
             <div class="p-3 mb-3 bg-body-secondary">
                 <?= $rowA['name'] ?>
@@ -71,10 +69,26 @@
         </div>
         <div class="myRequest">
             <div class="p-3 bg-light text-dark">
-                <b>Adopter:</b>
+                <b>Adopee Name:</b>
             </div>
             <div class="p-3 mb-3 bg-body-secondary">
                 <?= $rowU['username']?>
+            </div>
+        </div>
+        <div class="myRequest">
+            <div class="p-3 bg-light text-dark">
+                <b>Number:</b>
+            </div>
+            <div class="p-3 mb-3 bg-body-secondary">
+                <?= $row['contactnumber']?>
+            </div>
+        </div>
+        <div class="myRequest">
+            <div class="p-3 bg-light text-dark">
+                <b>Pet type:</b>
+            </div>
+            <div class="p-3 mb-3 bg-body-secondary">
+                <?= $rowA['breed']?>
             </div>
         </div>
         <div class="myRequest">
@@ -106,7 +120,6 @@
     </div>
     
     <?= $footer ?>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -14,17 +14,22 @@
         {
             if($rowAnimal["breed"] == "other"){
                 $adoptBtn = "";
+                $upBtn = "";
                 if($rowAnimal["status"] == 0 ||  $rowAnimal["status"] == 2){
                     $adoptBtn = "<button href='adoption form.php?x={$rowAnimal["id"]}' class='btn text-white' disabled id='upBtn'>Take me home</button>";
                 }
                 else {
                     $adoptBtn = "<button  class='btn text-white' id='upBtn'> <a class='text-decoration-none text-white' href='adoption form.php?x={$rowAnimal["id"]}'>Take me home </a> </button>";
                 }
+                if(isset($_SESSION["adm"])){
+                    $upBtn = "<a href='edit.php?x={$rowAnimal["id"]}' class='btn btn-dark'>Edit</a>";
+                }
 
                 $bttn ="
                 <div class='buttons text-center'> 
                     <a href='details.php?x={$rowAnimal["id"]}' class='btn btn-dark'>Details</a>
                     {$adoptBtn}
+                    {$upBtn}
                 </div>";
                 $layout .= "<div>
                 <div class='card gap-2 mt-5 mb-5 shadow align-items-center' style='width: 17rem;'>
@@ -33,11 +38,11 @@
                     <h3 class='card-title text-center d-flex align-items-center justify-content-center' style='height: 8vh;' >{$rowAnimal["name"]}</h3>
                     <hr class='TitleHR'>
                     <p class='card-text ps-3 mt-4'><b>Age:</b> <br> {$rowAnimal["age"]} Years</p>
-                    <p class='card-text mb-4 ps-3'><b>Size:</b><br> {$rowAnimal["size"]} cm</p>
+                    <p class='card-text mb-4 ps-3'><b>Weight:</b><br> {$rowAnimal["size"]} Kg</p>
                     {$bttn}
                     </div>
                     </div>
-              </div>";
+                </div>";
             }
 
         }

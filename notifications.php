@@ -1,12 +1,10 @@
 <?php 
     require_once "footer.php";
     require_once "navbar.php";
-    require_once "db.php";
-    // if(!isset($_SESSION["shelter"])){
-    //     header("Location: index.php");
-    // }
-    // $sql = "SELECT * FROM pet_adoptions WHERE shelter_id = {$_SESSION["shelter"]}";
-    $sql = "SELECT * FROM pet_adoptions WHERE shelter_id = 1";
+    if(!isset($_SESSION["user"]) && (!isset($_SESSION["adm"]))){
+        header("Location: sign in/sign in.php");
+    }
+    $sql = "SELECT * FROM pet_adoptions WHERE shelter_id = {$_SESSION["user"]}";
     $result = mysqli_query($conn, $sql);
     $layout = "";
 
@@ -16,7 +14,7 @@
             $resultA = mysqli_query($conn, $sqlA);
 
             $rowA = mysqli_fetch_assoc($resultA);
-            $sqlU = "SELECT * FROM users WHERE id = {$row['user_id_fk']}";
+            $sqlU = "SELECT * FROM user WHERE id = {$row['user_id_fk']}";
             $resultU = mysqli_query($conn, $sqlU);
 
             $rowU = mysqli_fetch_assoc($resultU);
@@ -29,7 +27,7 @@
                 <th scope='row'>$seen</th>
                 <td>{$row['request_date']}</td>
                 <td>{$rowA['name']}</td>
-                <td>{$rowU['first_name']} {$rowU['last_name']}</td>
+                <td>{$rowU['username']}</td>
                 <td><a href='requests.php?x={$row["id"]}'>Details</a></td>
             </tr>";
         }

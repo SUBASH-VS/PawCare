@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2023 at 05:21 PM
+-- Generation Time: Dec 13, 2023 at 05:40 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -52,12 +52,15 @@ CREATE TABLE `animals` (
 --
 
 INSERT INTO `animals` (`id`, `name`, `picture`, `description`, `size`, `age`, `gender`, `vaccinated`, `trained`, `breed`, `status`, `donee_id_fk`, `donor_name`, `donor_email`, `donor_phone`, `state`, `city`) VALUES
-(21, 'loki', 'gal1.jpg', 'good dog', '34', '4', 'male', 'yes', 'yes', 'dog', 1, 9, 'vijay', 'vijay@123', 1234567890, 'Tamil Nadu', 'coimbatore'),
-(22, 'joe', 'gal3.jpg', 'good dog', '43', '5', 'male', 'yes', 'yes', 'dog', 1, 9, 'vijay', 'vijay@123', 1234567890, 'Tamil Nadu', 'selam'),
-(33, 'prem', '6569bdac17b81.webp', 'good dog', '35', '4', 'female', 'yes', 'yes', 'dog', 1, 9, 'hemanth', 'user1@gmail.com', 1234567890, 'Tamil Nadu', 'coimbatore'),
-(34, 'nishant', '6569bf1922773.webp', 'good cat', '42', '8', 'male', 'yes', 'yes', 'cat', 1, 9, 'vijay', 'user@123', 1234567890, 'Tamil Nadu', 'coimbatore'),
-(36, 'dang', '656a264a5c2ef.jpg', 'good pet', '58', '5', 'female', 'yes', 'yes', 'other', 1, 9, 'vijay', 'vijay@123', 1234567890, 'Tamil Nadu', 'Mumbai'),
-(37, 'dhanush', '656cac883bc90.jpg', 'aamai', '23', '20', 'male', 'yes', 'yes', 'other', 1, 9, 'vijay', 'vijay@123', 1234567890, 'Tamil Nadu', 'Mumbai');
+(21, 'loki', 'dog4.jpg', 'good dogs', '24', '4', 'male', 'Yes', 'yes', 'dog', 1, 15, 'vijay', 'vijay@123', 1234567890, 'Tamil Nadu', 'coimbatore'),
+(22, 'joe', 'gal3.jpg', 'good dog', '13', '5', 'male', 'Yes', 'yes', 'dog', 1, 15, 'vijay', 'vijay@123', 1234567890, 'Tamil Nadu', 'selam'),
+(33, 'prem', '6569bdac17b81.webp', 'good dog', '7', '4', 'female', 'yes', 'yes', 'dog', 1, 15, 'hemanth', 'user1@gmail.com', 1234567890, 'Tamil Nadu', 'coimbatore'),
+(34, 'nishant', '6569bf1922773.webp', 'good cat', '3', '8', 'male', 'yes', 'yes', 'cat', 1, 15, 'vijay', 'user@123', 1234567890, 'Tamil Nadu', 'coimbatore'),
+(36, 'dang', '656a264a5c2ef.jpg', 'good pet', '4', '5', 'female', 'yes', 'yes', 'other', 1, 15, 'vijay', 'vijay@123', 1234567890, 'Tamil Nadu', 'Mumbai'),
+(37, 'dhanush', '656cac883bc90.jpg', 'aamai', '6', '20', 'male', 'yes', 'yes', 'other', 1, 15, 'vijay', 'vijay@123', 1234567890, 'Tamil Nadu', 'Mumbai'),
+(38, 'Arun', '656e017d370b4.jfif', 'good other', '8', '3', 'male', 'yes', 'yes', 'other', 1, 15, 'vijay', 'vijay@123', 1234567890, 'Tamil Nadu', 'Coidbatore'),
+(42, 'pon', '656f74c393570.jpg', 'nalla puna', '4', '2', 'male', 'yes', 'yes', 'cat', 1, 15, 'vijay', 'vijay@123', 2147483647, 'Tamil Nadu', 'Coidbatore'),
+(43, 'saran', '657196e8bf082.jpg', 'nallla silanthi', '12', '1', 'male', 'no', 'no', 'other', 1, 15, 'vijay', 'vijay@123', 1234567890, 'Tamil Nadu', 'Coidbatore');
 
 -- --------------------------------------------------------
 
@@ -81,6 +84,13 @@ CREATE TABLE `pet_adoptions` (
   `contactnumber` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `pet_adoptions`
+--
+
+INSERT INTO `pet_adoptions` (`id`, `adopt_date`, `user_id_fk`, `animal_id_fk`, `request_date`, `living_condition`, `previous_experience`, `adoption_reason`, `shelter_id`, `seen`, `adoptername`, `adopteremail`, `contactnumber`) VALUES
+(35, NULL, 14, 36, '2023-12-11', 'home', 'no', 'I need this pet', 15, 1, 'vijay', 'vijay@123', 1234567890);
+
 -- --------------------------------------------------------
 
 --
@@ -91,7 +101,7 @@ CREATE TABLE `user` (
   `id` int(25) NOT NULL,
   `username` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -100,10 +110,15 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `status`) VALUES
-(6, 'admin', 'admin@123', 'admin', 'admin'),
-(7, 'joe', 'joe@123', 'joe', 'user'),
-(8, 'Vijay Keerthy', 'vijaykeerthy101@gmail.com', '123', 'user'),
-(9, 'admin', 'user@123', 'user', 'user');
+(3, 'test1', 'test1@123', 'user', 'user'),
+(6, 'test2', 'test2@123', 'admin', 'adm'),
+(8, 'test3', 'test3@123', '831c237928e6212bedaa4451a514ace3174562f6761f6a157a2fe5082b36e2fb', 'user'),
+(10, 'test4', 'test4@123', 'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446', 'adm'),
+(14, 'user', 'user@123', '831c237928e6212bedaa4451a514ace3174562f6761f6a157a2fe5082b36e2fb', 'user'),
+(15, 'donate', 'donate@123', '86a49b447e02db87a579d0eab782fdc5955011a1302111d6e05c6bf03836f7dd', 'user'),
+(16, 'admin', 'admin@123', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'adm'),
+(17, 'nived', '23mx221@psgtech.ac.in', 'e50a63ef8c3023e4572dbad39a13d7bc7af644fa7b6566c48394410c06eb46a1', 'user'),
+(18, 'nived', '23mx221@gmail.com', 'c775e7b757ede630cd0aa1113bd102661ab38829ca52a6422ab782862f268646', 'user');
 
 --
 -- Indexes for dumped tables
@@ -139,19 +154,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `animals`
 --
 ALTER TABLE `animals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `pet_adoptions`
 --
 ALTER TABLE `pet_adoptions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

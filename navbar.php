@@ -6,7 +6,7 @@ $userAcc = "";
 $log = "<li><a href='logout.php?logout' class='last-btn'>Sign our</a></li>";
 
 // Check if any of the user, admin, or shelter sessions are set
-if(isset($_SESSION["user"])) {
+if(isset($_SESSION["user"]) || isset($_SESSION["adm"])) {
     // The user is logged in
     $userAcc = ""; 
     $log = "<li><a href='logout.php?logout' class='last-btn'>Logout</a></li>";
